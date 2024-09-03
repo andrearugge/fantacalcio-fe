@@ -4,6 +4,7 @@ import Home from './components/Home';
 import TeamSetup from './components/TeamSetup';
 import AuctionRoom from './components/AuctionRoom';
 import TeamView from './components/TeamView';
+import CreateParticipant from './components/CreateParticipant';
 import { SocketProvider } from './contexts/SocketContext';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/setup" element={<TeamSetup />} />
             <Route path="/auction" element={<AuctionRoom />} />
             <Route path="/team/:id" element={<TeamView />} />
+            <Route path="/create-participant" element={<CreateParticipant />} />
           </Routes>
         </div>
       </Router>
@@ -23,4 +25,5 @@ function App() {
   );
 }
 
+// ... all'interno del componente Routes
 export default App;
