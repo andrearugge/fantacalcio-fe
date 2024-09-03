@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useSocket } from '../contexts/SocketContext';
+// import { useSocket } from '../contexts/SocketContext';
 
 function AuctionRoom() {
   const { uniqueLink } = useParams();
+  const navigate = useNavigate();
   const [participant, setParticipant] = useState(null);
-  const socket = useSocket();
+  // const socket = useSocket();
 
   useEffect(() => {
     const fetchParticipant = async () => {
@@ -15,13 +16,13 @@ function AuctionRoom() {
         setParticipant(response.data);
       } catch (error) {
         console.error('Error fetching participant:', error);
+        // Esempio di navigazione in caso di errore
+        // navigate('/error');
       }
     };
 
     fetchParticipant();
-  }, [uniqueLink]);
-
-  // Qui puoi aggiungere la logica per l'asta
+  }, [uniqueLink, navigate]);
 
   return (
     <div className="container mx-auto p-4">

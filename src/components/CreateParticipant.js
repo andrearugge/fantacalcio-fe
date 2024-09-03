@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function CreateParticipant() {
   const [name, setName] = useState('');
   const [link, setLink] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/participants`, { name });
       setLink(response.data.participantLink);
+      // Esempio di navigazione dopo la creazione
+      // navigate('/participants');
     } catch (error) {
       console.error('Error creating participant:', error);
     }
