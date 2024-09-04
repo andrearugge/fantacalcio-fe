@@ -7,17 +7,10 @@ function Home() {
       <h1 className="text-4xl font-bold mb-4">Asta</h1>
       <div className="flex space-x-3">
         <Link
-          to="/setup"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Setup Squadre
-        </Link>
-
-        <Link
           to="/list"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
-          Gestione Calciatori
+          Lista Calciatori
         </Link>
 
         <Link
@@ -25,6 +18,12 @@ function Home() {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Gestisci Asta
+        </Link>
+        <Link
+          to="/teams"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Squadre
         </Link>
       </div>
     </div>

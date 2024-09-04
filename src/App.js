@@ -9,6 +9,7 @@ import TeamList from "./components/TeamList";
 import PlayerList from "./components/PlayerList";
 import CreateParticipant from "./components/CreateParticipant";
 import AuctionParticipant from "./components/AuctionParticipant";
+import ParticipantList from "./components/ParticipantList";
 import "./index.css";
 // import { SocketProvider } from "./contexts/SocketContext";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/create-participant" element={<CreateParticipant />} />
           <Route path="/teams" element={<TeamList />} />
           <Route path="/list" element={<PlayerList />} />
+          <Route path="/participants" element={<ParticipantList />} />
           <Route
             path="/auction-participant/:linkId"
             element={<AuctionParticipant />}

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function TeamSetup() {
   const [teams, setTeams] = useState(Array(8).fill(''));
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState([]);
   const [success, setSuccess] = useState('');
 
   const handleChange = (index, value) => {
@@ -14,23 +14,26 @@ function TeamSetup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setErrors([]);
     setSuccess('');
 
-    // Verifica che tutti i nomi siano inseriti
     if (teams.some(team => team.trim() === '')) {
-      setError('Inserisci tutti i nomi delle squadre');
+      setErrors(['Inserisci tutti i nomi delle squadre']);
       return;
     }
 
     try {
-      // Invia i dati al backend
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/teams/setup`, { teams });
-      setSuccess('Squadre create con successo!');
-      // Puoi aggiungere qui la logica per reindirizzare l'utente o aggiornare lo stato dell'app
+      if (response.data.errors && response.data.errors.length > 0) {
+        setErrors(response.data.errors);
+        if (response.data.createdTeams.length > 0) {
+          setSuccess(`${response.data.createdTeams.length} squadre create con successo.`);
+        }
+      } else {
+        setSuccess('Tutte le squadre sono state create con successo!');
+      }
     } catch (error) {
-      setError('Errore durante la creazione delle squadre. Riprova.');
-      console.error('Error:', error.response ? error.response.data : error.message);
+      setErrors([error.response?.data?.message || 'Errore durante la creazione delle squadre. Riprova.']);
     }
   };
 
@@ -54,7 +57,16 @@ function TeamSetup() {
           Crea Squadre
         </button>
       </form>
-      {error && <p className="text-red-500 mt-4">{error}</p>}
+      {errors.length > 0 && (
+        <div className="mt-4">
+          <h3 className="text-red-500 font-bold">Errori:</h3>
+          <ul className="list-disc list-inside">
+            {errors.map((error, index) => (
+              <li key={index} className="text-red-500">{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       {success && <p className="text-green-500 mt-4">{success}</p>}
     </div>
   );
