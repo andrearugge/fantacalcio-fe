@@ -14,12 +14,6 @@ function Home() {
         </Link>
 
         <Link
-          to="/auction"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Gestisci Asta
-        </Link>
-        <Link
           to="/teams"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
