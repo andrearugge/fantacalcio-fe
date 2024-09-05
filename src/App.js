@@ -2,11 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./components/Home";
-import TeamSetup from "./components/TeamSetup";
-import TeamView from "./components/TeamView";
 import TeamList from "./components/TeamList";
-import PlayerList from "./components/PlayerList";
-import CreateParticipant from "./components/CreateParticipant";
 
 import "./index.css";
 
