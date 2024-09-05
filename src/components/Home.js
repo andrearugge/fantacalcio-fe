@@ -19,20 +19,6 @@ function Home() {
         >
           Squadre
         </Link>
-
-        <Link
-          to="/auction-admin"
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Gestione Asta (Admin)
-        </Link>
-
-        <Link
-          to="/auction-login"
-          className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
-        >
-          Partecipa all'Asta
-        </Link>
       </div>
     </div>
   );
