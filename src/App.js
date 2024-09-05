@@ -16,11 +16,7 @@ function App() {
       <div className="App bg-gray-100">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/setup" element={<TeamSetup />} />
-          <Route path="/team/:id" element={<TeamView />} />
-          <Route path="/create-participant" element={<CreateParticipant />} />
           <Route path="/teams" element={<TeamList />} />
-          <Route path="/list" element={<PlayerList />} />
         </Routes>
       </div>
     </Router>
